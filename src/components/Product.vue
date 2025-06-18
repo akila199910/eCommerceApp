@@ -1,5 +1,5 @@
 <script setup>
-import { Icon } from '@iconify/vue';
+// import { Icon } from '@iconify/vue';
 import { ref, onMounted, onUnmounted, computed, onBeforeUnmount } from 'vue';
 import image1 from '../assets/img/product/images1.jpeg';
 import image2 from '../assets/img/product/images(2).jpeg';
@@ -82,12 +82,12 @@ onBeforeUnmount(() => {
                         <button @click="prevSlide"
                             class=" p-2 rounded-full bg-white shadow-md hover:bg-pink-100
                             text-pink-600 transition-colors" aria-label="Previous slide">
-                            <Icon icon="line:md:arrow-small-left" class="w-24 h-24" />
+                            <Icon icon="line-md:arrow-small-left" width="24" height="24" />
                         </button>
                         <button @click="nextSlide"
                             class=" p-2 rounded-full bg-white shadow-md hover:bg-pink-100
                             text-pink-600 transition-colors" aria-label="Next slide">
-                            <Icon icon="line:md:arrow-small-right" class="w-24 h-24" />
+                            <Icon icon="line-md:arrow-small-right" width="24" height="24" />
                         </button>
                     </nav>
                 </header>
