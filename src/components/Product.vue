@@ -1,26 +1,41 @@
 <script setup>
 import { Icon } from '@iconify/vue';
 import { ref, onMounted, onUnmounted, computed, onBeforeUnmount } from 'vue';
+import image1 from '../assets/img/product/images1.jpeg';
+import image2 from '../assets/img/product/images(2).jpeg';
+import image3 from '../assets/img/product/images(3).jpeg';
+import image4 from '../assets/img/product/images(4).jpeg';
+import image5 from '../assets/img/product/images(5).jpeg';
+import image6 from '../assets/img/product/images(6).jpeg';
+import image7 from '../assets/img/product/images(7).jpeg';
+import image8 from '../assets/img/product/images(8).jpeg';
+import image9 from '../assets/img/product/images(9).jpeg';
+import image10 from '../assets/img/product/images(10).jpeg';
+import image11 from '../assets/img/product/images(11).jpeg';
+import image12 from '../assets/img/product/images(12).jpeg';
+import image13 from '../assets/img/product/images(13).jpeg';
+import image14 from '../assets/img/product/images(14).jpeg';
+import image15 from '../assets/img/product/images(15).jpeg';
 
 const currentSlide = ref(0);
 const productsPerPage = ref(4);
 
 const products = [
-    {id:1, name:'image1', price: 100, rating: 4.5, image: '../assets/img/product/images(1).jpeg',discount: 20},
-    {id:2, name:'image2', price: 100, rating: 4.5, image: '../assets/img/product/images(2).jpeg',discount: 20},
-    {id:3, name:'image3', price: 100, rating: 4.5, image: '../assets/img/product/images(3).jpeg',discount: 20},
-    {id:4, name:'image4', price: 100, rating: 4.5, image: '../assets/img/product/images(4).jpeg',discount: 20},
-    {id:5, name:'image5', price: 100, rating: 4.5, image: '../assets/img/product/images(5).jpeg',discount: 20},
-    {id:6, name:'image6', price: 100, rating: 4.5, image: '../assets/img/product/images(6).jpeg',discount: 20},
-    {id:7, name:'image7', price: 100, rating: 4.5, image: '../assets/img/product/images(7).jpeg',discount: 20},
-    {id:8, name:'image8', price: 100, rating: 4.5, image: '../assets/img/product/images(8).jpeg',discount: 20},
-    {id:9, name:'image9', price: 100, rating: 4.5, image: '../assets/img/product/images(9).jpeg',discount: 20},
-    {id:10, name:'image10', price: 100, rating: 4.5, image: '../assets/img/product/images(10).jpeg',discount: 20},
-    {id:11, name:'image11', price: 100, rating: 4.5, image: '../assets/img/product/images(11).jpeg',discount: 20},
-    {id:12, name:'image12', price: 100, rating: 4.5, image: '../assets/img/product/images(12).jpeg',discount: 20},
-    {id:13, name:'image13', price: 100, rating: 4.5, image: '../assets/img/product/images(13).jpeg',discount: 20},
-    {id:14, name:'image14', price: 100, rating: 4.5, image: '../assets/img/product/images(14).jpeg',discount: 20},
-    {id:15, name:'image15', price: 100, rating: 4.5, image: '../assets/img/product/images(15).jpeg',discount: 20},
+    {id:1, name:'image1', price: 100, rating: 4.5, image: image1,discount: 20},
+    {id:2, name:'image2', price: 100, rating: 4.5, image: image2,discount: 20},
+    {id:3, name:'image3', price: 100, rating: 4.5, image: image3,discount: 20},
+    {id:4, name:'image4', price: 100, rating: 4.5, image: image4,discount: 20},
+    {id:5, name:'image5', price: 100, rating: 4.5, image: image5,discount: 20},
+    {id:6, name:'image6', price: 100, rating: 4.5, image: image6,discount: 20},
+    {id:7, name:'image7', price: 100, rating: 4.5, image: image7,discount: 20},
+    {id:8, name:'image8', price: 100, rating: 4.5, image: image8,discount: 20},
+    {id:9, name:'image9', price: 100, rating: 4.5, image: image9,discount: 20},
+    {id:10, name:'image10', price: 100, rating: 4.5, image: image10,discount: 20},
+    {id:11, name:'image11', price: 100, rating: 4.5, image: image11,discount: 20},
+    {id:12, name:'image12', price: 100, rating: 4.5, image: image12,discount: 20},
+    {id:13, name:'image13', price: 100, rating: 4.5, image: image13,discount: 20},
+    {id:14, name:'image14', price: 100, rating: 4.5, image: image14,discount: 20},
+    {id:15, name:'image15', price: 100, rating: 4.5, image: image15,discount: 20},
 ];
 
 const totalSlides = computed(() => Math.ceil(products.length / productsPerPage.value));
@@ -101,12 +116,12 @@ onBeforeUnmount(() => {
                                         <span class=" text-sm text-gray-500 ml-1">({{ product.rating }})</span>
                                     </div>
                                     <h3 class=" text-lg font-semibold text-gray-800 mb-1">{{ product.name }}</h3>
-                                    <footer>
+                                    <footer class=" flex justify-between items-center">
                                         <div>
-                                            <span class="text-lg font-bold text-pink-600">${{ product.price * (1 - product.discount / 100).toFixed(2) }}">
+                                            <span class="text-lg font-bold text-pink-600">${{ product.price * (1 - product.discount / 100).toFixed(2) }}>
                                             </span>
                                             <span v-if="product.discount > 0" class="text-sm text-gray-500 line-through ml-2">
-                                                ${{ product.price.toFixed(2) }}"></span>
+                                                ${{ product.price.toFixed(2) }}></span>
                                         </div>
                                         <button class="p-2 bg-pink-950 rounded-full text-white hover:bg-pink-700 transition-colors"
                                         aria-label="Add to cart">
@@ -118,7 +133,10 @@ onBeforeUnmount(() => {
                         </li>
                     </ul>
                 </section>
+                <nav class=" flex justify-center mt-6 space-x-2" aria-label="Carousel pagination">
+                    <button v-for="index in totalSlides" :key="index" @click="currentSlide = index - 1"
+                    :class="['w-3 h-3 rounded-full', currentSlide === index - 1 ? 'bg-pink-950' : 'bg-gray-400']"/>
+                </nav>
             </main>
-
     </section>
 </template>
