@@ -1,5 +1,4 @@
 <script setup>
-// import { Icon } from '@iconify/vue';
 import { ref, onMounted, onUnmounted, computed, onBeforeUnmount } from 'vue';
 import image1 from '../assets/img/product/images1.jpeg';
 import image2 from '../assets/img/product/images(2).jpeg';
