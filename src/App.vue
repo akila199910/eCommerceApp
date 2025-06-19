@@ -8,12 +8,15 @@ import About from "./components/About.vue";
 </script>
 
 <template>
-  <Header />
-  <Hero/>
-  <Product/>
-  <Categories/>
-  <Offers/>
-  <About/>
+  <div>
+      <Header />
+      <Hero/>
+      <Product/>
+      <Categories/>
+      <Offers/>
+      <About/>
+  </div>
+
 </template>
 
 
