@@ -73,7 +73,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <section class="py-12 scroll-mt-20 bg-gray-50 " id="product">
+    <section class="py-12 scroll-mt-20 bg-gray-50 " id="products">
             <main class=" container mx-auto px-4">
                 <header class=" flex justify-between items-center mb-8">
                     <h2 class=" md:text-3xl text-2xl font-bold text-amber-900">Featured Products</h2>
