@@ -5,16 +5,32 @@ import { ref, onMounted, onUnmounted } from 'vue';
 const isScrolled = ref(false);
 const isMobileMenuOpen = ref(false);
 const navItems = [
-    {id: 1, name: "Home", link: "#home"},
-    {id: 1, name: "Products", link: "#products"},
-    {id: 1, name: "Categories", link: "#categories"},
-    {id: 1, name: "Offers", link: "#offers"},
-    {id: 1, name: "About", link: "#about"},
-    {id: 1, name: "Contact", link: "#contact"},
+    {id: 1, name: "Home", link: "home"},
+    {id: 1, name: "Products", link: "products"},
+    {id: 1, name: "Categories", link: "categories"},
+    {id: 1, name: "Offers", link: "offers"},
+    {id: 1, name: "About", link: "about"},
+    {id: 1, name: "Contact", link: "contact"},
 ];
 
 const handleScroll = () => {
     isScrolled.value = window.scrollY > 10;
+};
+
+const scrollToSection = (sectionId, event) => {
+    event.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+        const headerOffset = 80; // Adjust this value based on your header height
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
+    }
+    isMobileMenuOpen.value = false; // Close mobile menu after clicking
 };
 
 onMounted(() => {
@@ -34,7 +50,7 @@ onUnmounted(() => {
                 <div class="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-6">
                     <!-- Logo + Mobile Menu Toggle Button -->
                      <div class="flex justify-between items-center w-full md:w-auto">
-                        <a href="/" class="text-2xl font-bold text-pink-600">E-Commerce</a>
+                        <a href="/" class="text-2xl font-bold text-pink-600 uppercase">Sebiro Technologies</a>
                         <button
                             class="md:hidden text-gray-700 hover:text-indigo-600"
                             aria-label="Toggle mobile menu"
@@ -82,14 +98,22 @@ onUnmounted(() => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <ul class="hidden md:flex justify-center py-3 flex-wrap gap-x-6 text-sm font-medium text-white">
                     <li v-for="item in navItems" :key="item.id">
-                        <a :href="item.link" class="hover:text-pink-300 transition-colors">{{ item.name }}</a>
+                        <a :href="'#' + item.link" 
+                           @click="scrollToSection(item.link, $event)"
+                           class="hover:text-pink-300 transition-colors">
+                            {{ item.name }}
+                        </a>
                     </li>
                 </ul>
 
                 <section v-if="isMobileMenuOpen"
                     class="md:hidden mt-2 bg-white rounded-lg shadow-md p-4 space-y-4 text-[#5D4037] text-center"
                     aria-label="Mobile navigation">
-                    <a v-for="item in navItems" :key="item.id" :href="item.link" class="block hover:text-pink-600 text-sm font-medium">
+                    <a v-for="item in navItems" 
+                       :key="item.id" 
+                       :href="'#' + item.link"
+                       @click="scrollToSection(item.link, $event)"
+                       class="block hover:text-pink-600 text-sm font-medium">
                         {{ item.name }}
                     </a>
                 </section>

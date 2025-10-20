@@ -1,4 +1,18 @@
 <script setup>
+const scrollToSection = (sectionId, event) => {
+    event.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+        const headerOffset = 80; // Adjust this value based on your header height
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
+    }
+};
 </script>
 
 <template>
@@ -7,17 +21,21 @@
             <!-- left content -->
              <div class="text-center lg:text-left max-w-xl">
                 <h1 class=" text-4xl sm:text-5xl font-bold text-amber-950 leading-tight mb-4">
-                    Discover the Best Deals on Top Products
+                    Selling Office Equipment, Stationeries & Services.
                 </h1>
                 <p class="text-gray-700 text-base sm:text-lg mb-6">
                     Exclusive discounts and special offers on everything you love. Shop now and be the first to
                     grab the latest trends
                 </p>
                 <div class="flex justify-center lg:justify-start gap-4">
-                    <a href="#products" class="px-6 py-3 bg-pink-900 text-white text-sm font-semibold rounded-lg shadow
-                     hover:bg-pink-600 transition">Shop Now</a>
-                    <a href="#offers" class="px-6 py-3 border-pink-500 bg-pink-600  text-sm font-semibold rounded-lg shadow
-                     hover:bg-pink-200 transition">View Offers</a>
+                    <a href="#products" 
+                       @click="scrollToSection('products', $event)"
+                       class="px-6 py-3 bg-pink-900 text-white text-sm font-semibold rounded-lg shadow
+                       hover:bg-pink-600 transition">Shop Now</a>
+                    <a href="#offers" 
+                       @click="scrollToSection('offers', $event)"
+                       class="px-6 py-3 border-pink-500 bg-pink-600  text-sm font-semibold rounded-lg shadow
+                       hover:bg-pink-200 transition">View Offers</a>
                 </div>
              </div>
              <!-- Right image -->
